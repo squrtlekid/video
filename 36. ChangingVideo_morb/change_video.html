@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>changing_video.html</title>
+<link href="css/changingVideo.css" rel="stylesheet" type="text/css">
+<link href="#vid.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div>
+<video id="vid" preload="auto" autoplay="autoplay" muted="muted" loop="loop"
+	  src="video/hedgehogs.mp4" onClick="switchVideo()"></video>
+</div>
+</body>
+
+<script>
+	
+var vid = document.getElementById ("vid")
+//morbb
+var hedgehogs = "video/hedgehogs.mp4";
+var black = "video/black.mp4";
+var red = "video/red.mp4";
+var spine01 = "video/spine01.mp4";
+
+var channel = 0;
+var pausedAt = 0;
+	
+function switchVideo() {
+	channel ++
+	pausedAt = vid.currentTime;
+	console.log(vid.currentTime);
+	
+if (channel == 1){
+	vid.src = red;
+	vid.currentTime = pausedAt;
+}
+if (channel == 2) {
+	vid.src = black;
+	vid.currentTime = pausedAt;
+
+}
+if (channel == 3) {
+vid.src = hedgehogs;
+vid.currentTime = pausedAt;
+	
+}
+if (channel == 4){
+vid.src = spine01;
+vid.currentTime = pausedAt; 
+	channel  = 0;
+}
+}
+{
+if (channel)
+vid.play();
+vid.muted = false;
+}
+
+</script>	
+	
+</html>
